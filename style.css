@@ -3,21 +3,48 @@
 }
 
 :root {
+  --visible-color: rgb(44, 22, 167);
+  --visible-color-with-opacity: rgb(44, 22, 167, 0);
+  --button-size: 5vmin;
 }
 
 html {
-  font-family: ;
   direction: ltr;
-  font-size: ;
 }
 
 body {
   margin: 0;
-  height: ;
-  background-color: var(--page-background-color);
-  color: var(--page-text-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Fallbacks für manche Styles benutzen, S.13 unten */
+form {
+  width: 50vmin;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* Füge media queries ein, S.15 unten*/
+.buttons {
+  all: unset;
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: var(--visible-color-with-opacity);
+  border-radius: 50%;
+  outline: 0.3vmin solid black;
+  outline-offset: 1.2vmin;
+  box-shadow: 0 0 0 1.3vmin white,
+    0 0 0.5vmin 1.6vmin var(--visible-color-with-opacity);
+  transition: background-color 0.1s ease, box-shadow 0.15s ease;
+}
+
+.buttons:focus {
+  background-color: var(--visible-color);
+  box-shadow: 0 0 0 1.3vmin white, 0 0 0.5vmin 1.6vmin var(--visible-color);
+}
+
+.buttons:checked {
+  background-color: var(--visible-color);
+}
